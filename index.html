@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>To-Do App</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+/>
+</head>
+<body>
+   <iframe src='https://my.spline.design/roomgirlworkingcopy-oh63hRMA7aZyfID0ONApHCHE/' frameborder='0' width='100%' height='100%'></iframe>
+  <main>
+    <h1 align="center">My To-Do List</h1>
+    
+<input type="text" id="searchInput" placeholder="Search activity...">
+<div class="toggle-wrapper">
+  <span class="toggle-label">Dark Mode</span>
+  <label class="toggle-switch">
+    <input type="checkbox" id="themeToggle">
+    <span></span>
+  </label>
+</div>
+    <form id="add-form">
+  <input type="text" id="activityInput" placeholder="New activity..." />
+  <select id="prioritySelect">
+    <option value="High">High</option>
+    <option value="Medium" selected>Medium</option>
+    <option value="Low">Low</option>
+  </select>
+  <button id="addBtn" type="button">Add Activity</button>
+</form>
+
+<ul id="task-list"></ul>
+
+    </form>
+
+    <ul id="task-list"></ul>
+
+  </main>
+
+  <script type="module" src="js/main.js"></script>
+  <script src="js/animatedBackground.js"></script>
+  <canvas id="backgroundCanvas"></canvas>
+
+<script>
+  const toggle = document.getElementById('themeToggle');
+  const body = document.body;
+
+  toggle.addEventListener('change', function () {
+    body.classList.toggle('dark-mode');
+  });
+</script>
+
+
+</body>
+</html>
