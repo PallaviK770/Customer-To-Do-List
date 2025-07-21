@@ -31,6 +31,7 @@ button {
   border: none;
   cursor: pointer;
   font-size: 18px;
+  margin-left: 40px;
 }
 
 input[type="checkbox"] {
@@ -44,7 +45,6 @@ input[type="checkbox"] {
   flex: 1;
 }
 
-/* strike */
 .completed-text {
   text-decoration: line-through;
   color: #777;
@@ -56,13 +56,22 @@ input[type="checkbox"] {
   font-size: 18px;
 }
 
-#searchInput {
-  padding: 6px 10px;
-  margin: 10px 0;
-  width: 200px;
-  font-size: 14px;
-  border-radius: 5px;
-  border: 1px solid #ccc;
+.search-wrapper {
+  position: fixed;
+  top: 70px; /* Below the toggle */
+  right: 20px;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 6px 12px;
+  border-radius: 6px;
+  box-shadow: 0 0 5px rgba(0,0,0,0.1);
+}
+
+body.dark-mode .search-wrapper {
+  background-color: rgba(34, 34, 34, 0.8);
 }
 
 select#prioritySelect {
@@ -95,7 +104,7 @@ select#prioritySelect {
   background-color: #2ecc71;
 }
 
-/* Toggle Switch */
+
 .toggle-container {
   display: inline-flex;
   align-items: center;
@@ -136,7 +145,6 @@ select#prioritySelect {
   transform: translateX(20px);
 }
 
-/* Dark Mode */
 body.dark-mode {
   background-color: #121212;
   color: #e0e0e0;
@@ -232,14 +240,10 @@ li.dragging {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100vw;
-  height: 100vh;
-  z-index: -1;
-  pointer-events:no;
-}
-
-#searchInput {
-  float: right;
+  width: 50vw;
+  height: 50vh;
+  z-index: 0;
+  pointer-events:yes;
 }
 
 .toggle-wrapper {
@@ -302,15 +306,16 @@ body.dark-mode .toggle-switch {
   background-color: #4caf50;
 }
 
-
 iframe {
   position: fixed;
-  top: 0; left: 0;
+  top: 0px;
+  left: 0;
   width: 100vw;
   height: 100vh;
   z-index: -1;
-  pointer-events: none;
+  pointer-events: yes;
 }
+
 body.dark-mode .toggle-switch {
   background-color: #222;
 }
@@ -326,7 +331,44 @@ body.dark-mode .toggle-switch span {
 }
 
 #task-list li {
-  min-height: 40px;
+  min-height: 10px;
+}
+
+.top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: right;
+  padding: 10px 20px;
+  margin-bottom: 20px;
+  z-index: 2;
+  position: relative;
+}
+
+#task-list li {
+  min-height: 20px;
+  padding: 10px;
+  margin: 10px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+canvas {
+  transform: scaleY(-1);
+  transform-origin: bottom right; 
+}
+
+#activityInput {
+  margin-left: 40px; 
+}
+iframe {
+  will-change: transform;
+}
+iframe, canvas, .blob {
+  transform: translateZ(0);
+}
+main {
+  overflow: hidden;
 }
 
 
