@@ -37,13 +37,14 @@ button {
 input[type="checkbox"] {
   transform: scale(1.2);
 }
-/* tick and text */
+
 .text-wrapper {
   display: flex;
   align-items: center;
   gap: 8px;
   flex: 1;
 }
+
 
 .completed-text {
   text-decoration: line-through;
@@ -58,7 +59,7 @@ input[type="checkbox"] {
 
 .search-wrapper {
   position: fixed;
-  top: 70px; /* Below the toggle */
+  top: 70px;
   right: 20px;
   z-index: 1000;
   display: flex;
@@ -104,7 +105,6 @@ select#prioritySelect {
   background-color: #2ecc71;
 }
 
-
 .toggle-container {
   display: inline-flex;
   align-items: center;
@@ -145,6 +145,7 @@ select#prioritySelect {
   transform: translateX(20px);
 }
 
+/* Dark Mode */
 body.dark-mode {
   background-color: #121212;
   color: #e0e0e0;
@@ -306,6 +307,7 @@ body.dark-mode .toggle-switch {
   background-color: #4caf50;
 }
 
+
 iframe {
   position: fixed;
   top: 0px;
@@ -370,5 +372,13 @@ iframe, canvas, .blob {
 main {
   overflow: hidden;
 }
+.due-date {
+  font-size: 12px;
+  color: #555;
+  margin-left: 10px;
+  font-style: italic;
+}
 
-
+body.dark-mode .due-date {
+  color: #aaa;
+}
