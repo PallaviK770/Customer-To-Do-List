@@ -1,26 +1,29 @@
 import { activityService } from './activityService.js';
 import { TaskList } from './taskList.js';
 import { AnimatedBackground } from './animatedBackground.js';
-const bg = new AnimatedBackground();
 
+const bg = new AnimatedBackground();
 const taskList = new TaskList("task-list");
 
 const input = document.getElementById("activityInput");
 const prioritySelect = document.getElementById("prioritySelect");
 const addBtn = document.getElementById("addBtn");
 const searchInput = document.getElementById("searchInput");
+const dueDateInput = document.getElementById('dueDateInput');
 
 addBtn.addEventListener("click", () => {
   const title = input.value.trim();
   const priority = prioritySelect.value;
+  const dueDate = dueDateInput.value;
 
   if (title !== "") {
-    console.log("Calling addActivity with:", title, priority);
-    activityService.addActivity(title, priority);
+    console.log("Calling addActivity with:", title, priority, dueDate);
+    activityService.addActivity(title, priority, dueDate); 
     taskList.render();
     bg.triggerRipple();
     input.value = "";
     prioritySelect.value = "Medium";
+    dueDateInput.value = "";
   }
 });
 
@@ -37,8 +40,8 @@ searchInput.addEventListener("input", () => {
     }
   });
 });
-const themeToggle = document.getElementById("themeToggle");
 
+const themeToggle = document.getElementById("themeToggle");
 
 if (localStorage.getItem("theme") === "dark") {
   document.body.classList.add("dark-mode");
