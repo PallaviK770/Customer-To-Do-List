@@ -10,7 +10,7 @@ export const activityService = {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(activities));
   },
 
-  addActivity(title, priority = "Medium") {
+  addActivity(title, priority = "Medium", dueDate = "") {
   console.log("🚀 addActivity called");
   console.log("Title:", title);
   console.log("Priority:", priority);
@@ -19,6 +19,7 @@ export const activityService = {
     id: Date.now().toString(),
     title: title,
     completed: false,
+    dueDate: dueDate,
     priority: priority,
   };
 
