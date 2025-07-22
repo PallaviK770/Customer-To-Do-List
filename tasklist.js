@@ -55,6 +55,9 @@ export class TaskList {
     );
     activityService.saveActivities(newOrder);
   });
+
+
+
 }
 getDragAfterElement(y) {
   const draggableElements = [...this.container.querySelectorAll("li:not(.dragging)")];
@@ -72,5 +75,6 @@ getDragAfterElement(y) {
 }
 
 }
+
 
 
